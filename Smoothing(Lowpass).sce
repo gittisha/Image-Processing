@@ -1,0 +1,16 @@
+a=imread('gojo.jpg'); 
+a=rgb2gray(a); 
+w4=1/16 * ones(4,4); 
+a=double(a); 
+b=uint8(conv2(a,w4,'same')); 
+figure(); 
+subplot(2,2,1),imshow(uint8(a)),title('ORIGINAL IMAGE'); 
+subplot(2,2,2),imshow(uint8(b)),title ('Smoothed Image using 4X4 Mask'); 
+w5=1/25 * ones(5,5); 
+a=double(a); 
+c=uint8(conv2(a,w5,'same')); 
+subplot(2,2,3),imshow(uint8(c)),title ('Smoothed Image using 5X5 Mask'); 
+w9=1/81 * ones(9,9); 
+a=double(a); 
+d=uint8(conv2(a,w9,'same')); 
+subplot(2,2,4),imshow(uint8(d)),title ('Smoothed Image using 9X9 Mask'); 
